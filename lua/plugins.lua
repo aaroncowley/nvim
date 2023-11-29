@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
     use 'williamboman/mason-lspconfig.nvim'
 
     -- rust
-    use 'neovim/nvim-lspconfig' 
     use 'simrat39/rust-tools.nvim'
 
     -- Completion framework:
@@ -29,12 +28,20 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp'
 
     -- Useful completion sources:
+    use 'neovim/nvim-lspconfig' 
     use 'hrsh7th/cmp-nvim-lua'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'hrsh7th/cmp-vsnip'                             
     use 'hrsh7th/cmp-path'                              
     use 'hrsh7th/cmp-buffer'                            
     use 'hrsh7th/vim-vsnip'                             
+
+    -- Prettier
+    use {
+        'prettier/vim-prettier',
+        run = 'yarn install --frozen-lockfile --production',
+        ft = {'javascript', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'}
+    }
     
 
     -- minimal neotree

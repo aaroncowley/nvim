@@ -1,3 +1,5 @@
+local lspconfig = require('lspconfig')
+
 require("mason").setup({
     ui = {
         icons = {
@@ -7,7 +9,39 @@ require("mason").setup({
         },
     }
 })
-require("mason-lspconfig").setup()
+
+require("mason-lspconfig").setup({
+    ensure_installed = {'pyright', 'tsserver', 'gopls'}
+})
+
+require('mason-lspconfig').setup_handlers({
+  function(server)
+    lspconfig[server].setup({})
+  end,
+})
+
+require("nvim-treesitter.configs").setup({
+    ensure_installed = {
+        "bash",
+        "comment",
+        "css",
+        "html",
+        "javascript",
+        "jsdoc",
+        "lua",
+        "markdown",
+        "regex",
+        "scss",
+        "toml",
+        "typescript",
+        "yaml",
+        "python",
+        "go",
+    },
+    highlight = {
+        enable = true,
+    },
+})
 
 require('lualine').setup {
   options = {
