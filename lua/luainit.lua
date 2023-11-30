@@ -11,7 +11,7 @@ require("mason").setup({
 })
 
 require("mason-lspconfig").setup({
-    ensure_installed = {'pyright', 'tsserver', 'gopls'}
+    ensure_installed = {'pyright', 'eslint', 'tsserver', 'gopls'}
 })
 
 require('mason-lspconfig').setup_handlers({
